@@ -1,0 +1,7 @@
+simplejson
+urllib3
+requests
+flask
+flask_restful
+flask-jsonpify
+json-query
