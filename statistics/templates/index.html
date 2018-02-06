@@ -1,0 +1,58 @@
+<title>GDP Growth</title>
+<head><h1>Mexico and Sweden GDP growth % (nominal)</h1></head>
+
+<body>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"> </script> <canvas id="myChart2" width="30" height="5"></canvas>
+<script>
+var ctx = document.getElementById("myChart2").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{%for x in key%}
+                    {{x}},
+                {%endfor%}],
+            
+        datasets: [{
+            label: 'Sweden',
+            data: [{%for x in change_sw%}
+                    {{x}},
+                {%endfor%}],
+            backgroundColor: [
+                'rgba(0, 0, 0, 0)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)'
+     
+            ],
+            borderWidth: 1
+        },{
+            label: 'Mexico',
+            data: [{%for y in change_wb%}
+                    {{y}},
+                {%endfor%}],
+            backgroundColor: [
+                
+               'rgba(0, 0, 0, 0)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)'
+            ],
+            borderWidth: 1
+        }]
+        
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+</script>
+<p>source: World Bank and Statistik Databasen </p>
+<a href = "/gdp"> GDP </a>
+</body>
